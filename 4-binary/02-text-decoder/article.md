@@ -1,18 +1,18 @@
-# TextDecoder and TextEncoder
+# TextDecoder и TextEncoder
 
-What if the binary data is actually a string? For instance, we received a file with textual data.
+Что если бинарные данные фактически являются строкой? На пример, мы получили файл с текстовыми данными.
 
-The build-in [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) object allows to read the value into an an actual Javascript string, given the buffer and the encoding.
+Встроенный [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) объект позволяет читать данные внутри Javascript строки в буфер и декодировать их.
 
-We first need to create it:
+Прежде всего нам нужно создать:
 ```js
 let decoder = new TextDecoder([label], [options]);
 ```
 
-- **`label`** -- the encoding, `utf-8` by default, but `big5`, `windows-1251` and many other are also supported.
-- **`options`** -- optional object:
-  - **`fatal`** -- boolean, if `true` then throw an exception for invalid (non-decodable) characters, otherwise (default) replace them with character `\uFFFD`.
-  - **`ignoreBOM`** -- boolean, if `true` then ignore BOM (an optional byte-order unicode mark), rarely needed.
+- **`label`** -- тип кодировки, `utf-8`используется по умолчанию, но также поддерживаются `big5`, `windows-1251` и многие другие.
+- **`options`** -- необязательный объект с дополнительными опциями:
+  - **`fatal`** -- boolean, если `true` тогда генерируется ошибка для невалидных (не декодируемых) символов, в ином случае (по умолчанию) они заменяются символом `\uFFFD`.
+  - **`ignoreBOM`** -- boolean, если `true` тогда игнорируется BOM (дополнительная byte-order unicode метка), необходимо крайне редко.
 
 ...And then decode:
 
